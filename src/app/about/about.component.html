@@ -1,0 +1,27 @@
+
+
+<h2>Colored Table Header</h2>
+
+<table *ngIf="apps">
+  <tr>
+    <th>Id</th>
+    <th>firstName</th>
+    <th>lastName</th>
+    <th>email</th>
+    <th>mobile</th>
+   
+    <th>address</th>
+  </tr>
+  <tr  *ngFor="let app of apps">
+    <td>{{app.userID}}</td>
+    <td>{{app.firstName}}</td>
+    <td>{{app.lastName}}</td>
+    <td>{{app.email}}</td>
+    <td>{{app.mobile}}</td>
+    <td>{{app.address}}</td>
+  </tr>
+  
+</table>
+
+
+<button (click)=" onAdd()" type="button"   >Next</button>

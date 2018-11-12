@@ -1,0 +1,50 @@
+<div class="header">
+<H3>{{title}} </H3> 
+</div>
+<mat-toolbar color="primary">
+  <button mat-icon-button >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+
+  <button mat-button (click)="onHome()">Home</button>
+  <button mat-button (click)="onAboutUs()">AboutUs</button>
+  <button mat-button (click)="onServices()">Services</button>
+  <button mat-button (click)="onRegister()">Register</button>
+
+</mat-toolbar>
+
+
+<div class="row">
+  <div class="leftcolumn">
+
+      <router-outlet></router-outlet>
+     
+    
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      
+    </div>
+    <div class="card">
+    
+    </div>
+    <div class="card">
+   
+    </div>
+  </div>
+</div>
+
+<mat-toolbar color="primary">
+   
+  
+    <!-- This fills the remaining space of the current row -->
+    <span class="footer-center">
+
+        Saksoft Limited  
+    </span>
+  
+  </mat-toolbar>
+
+
+

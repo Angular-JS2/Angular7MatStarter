@@ -1,0 +1,86 @@
+<button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button>
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+  <mat-step [stepControl]="firstFormGroup">
+      <mat-card>
+          <form [formGroup]="firstFormGroup" (ngSubmit)="form1()" #formone="ngForm">
+              <ng-template matStepLabel>Fill out your name</ng-template>
+             <p>
+                <mat-form-field >
+                  
+                    <input matInput placeholder="First name" formControlName="firstName" required>
+                    <mat-icon matSuffix>how_to_reg</mat-icon>
+                  </mat-form-field>
+                  &nbsp;
+                  <mat-form-field >
+                      <input matInput placeholder="Last name" formControlName="lastName" required>
+                      <mat-icon matSuffix>how_to_reg</mat-icon>
+                    </mat-form-field>
+                    &nbsp;
+                    <mat-form-field >
+                        <input matInput placeholder="Email" formControlName="email" required>
+                        <mat-icon matSuffix>contact_mail</mat-icon>
+                      </mat-form-field>
+             </p>
+             <p>
+                  <mat-form-field >
+                      <input matInput placeholder="Mobile" formControlName="mobile" required> 
+                      <mat-icon matSuffix>contact_phone</mat-icon>
+                  </mat-form-field>
+                  &nbsp;
+                  <mat-form-field >
+                      <input matInput placeholder="Password" formControlName="password" required>
+                      <mat-icon matSuffix>vpn_key</mat-icon>
+                      
+                </mat-form-field>
+                
+              </p>
+          
+              
+              <div>
+                <button type="button" mat-button matStepperNext>Next</button>
+                <button type="submit" mat-button>submit</button>
+              </div>
+            </form>
+            <mat-divider ></mat-divider>
+           
+      </mat-card>
+   
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup" (ngSubmit)="form2()" #formtwo="ngForm">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="address" required>
+        <mat-icon matSuffix>contacts</mat-icon>
+      </mat-form-field>
+      <div>
+        <button type="button" mat-button matStepperPrevious>Back</button>
+        <button type="button" mat-button matStepperNext>Next</button>
+         <button type="submit" mat-button>submit</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button type="button" (click)="stepper.reset()">Reset</button>
+      <button mat-button type="button" (click)="formone.ngSubmit.emit();formtwo.ngSubmit.emit()">
+        submit
+        </button>
+    </div>
+  </mat-step>
+  
+</mat-horizontal-stepper>
+
+
+{{this.firstFormGroup.value | json}}
+{{this.secondFormGroup.value | json}}
+{{this.res | json}}
+
+
+
+
+
